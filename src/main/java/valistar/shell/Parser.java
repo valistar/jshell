@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Parser {
     //Doesnt work with escape characters.
     //Doesn't work if a token is just whitespace. Not sure if that ever should be allowed, though.
-    //Doesn't work for input with 0 operators. Because of empty overloaded constructor, I think.
+    //Doesn't let you reroute output streams.
     //Should probably break apart on ';' and return an array of expressions or something.
 
     public static Expression parse(String input) {

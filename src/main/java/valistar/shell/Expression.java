@@ -7,6 +7,7 @@ public class Expression implements ExpressionValue {
     //TODO Make operator enum.
 
     public Expression(Action action) {
+        this.lvalue = action;
 
     }
 
@@ -32,19 +33,17 @@ public class Expression implements ExpressionValue {
         }
 
         if(operator != null) {
-            switch(operator.toString()) {
-                case "|":
-                    //Bind output to rvalue stdin
-                    break;
-                case ">":
-                    //Write output to file
-                    break;
-                case ">>":
-                    //Append output to file
-                    break;
-                case "<":
-                    //Bind lvalue to rvalue stdin
-                    break;
+            if(operator.is(Operator.Operators.PIPE)) {
+                //Bind output to rvalue stdin
+            }
+            else if(operator.is(Operator.Operators.INPUT)) {
+                //Write output to file
+            }
+            else if(operator.is(Operator.Operators.OUTPUT)) {
+                //Append output to file
+            }
+            else if(operator.is(Operator.Operators.APPEND)) {
+                //Bind lvalue to rvalue stdin
             }
         }
 

@@ -11,7 +11,7 @@ public class Operator implements ExpressionValue {
         UNARY //Always left unary.
     }
 
-    private enum Operators {
+    public enum Operators {
         AND,
         OR,
         TERMINATOR,
@@ -64,6 +64,10 @@ public class Operator implements ExpressionValue {
             default:
                 //TODO Throw
         }
+    }
+
+    public boolean is(Operator.Operators operator) {
+        return this.operator == operator;
     }
 
     public Associativity getAssociativity() {
